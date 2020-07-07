@@ -1,0 +1,75 @@
+---
+name: patient-verification-api
+author: Scott Eremia-Roden
+version: 1.0.0
+repository:
+  type: "git"
+  url: "https://github.com/internetcalifornia/project-generator.git"
+description: Package Test
+entrypoint: build/app.js
+scripts:
+  start: node .
+  build: ./node_modules/.bin/babel --extensions ".ts" src --out-dir build
+license: MIT
+path: ~/Projects
+keywords:
+  - virtual visit api
+  - verification api
+files:
+  - name: src
+    content:
+      - name: routes
+        content:
+          - verificationRoute.js
+      - name: environment
+        content:
+          - environment.ts
+      - name: database
+        content:
+          - name: connection
+            content:
+              - connection.ts
+          - name: queries
+            content:
+              - verificationQuery.ts
+      - name: logger
+        content:
+          - logger.ts
+  - name: ".babelrc"
+    copy: "~/Projects/common/.babelrc"
+  - name: images
+    content:
+      - name: "logo.png"
+        from: "https://https://avatars3.githubusercontent.com/u/10732267?s=460&u=aa98cada1121c917a4b272ebfa92f6fb71fe2aaf&v=4"
+dependencies:
+  node:
+    packageManager: npm
+    production:
+      - "@babel/runtime"
+      - express
+      - uuid
+      - winston
+      - morgan
+      - body-parser
+      - moment
+      - mssql
+      - winston-daily-rotate-file
+    dev:
+      - "@babel/cli"
+      - "@babel/core"
+      - "@babel/node"
+      - "@babel/preset-env"
+      - "@babel/preset-typescript"
+      - "@babel/plugin-transform-runtime"
+      - "@babel/plugin-proposal-class-properties"
+      - "chai"
+      - "@types/chai"
+      - "chai-as-promised"
+      - "@types/chai-as-promised"
+      - "chai-http"
+      - "@types/express"
+      - "mocha"
+      - "@types/mocha"
+      - "@types/mssql"
+      - "@types/uuid"
+      - "@types/winston"

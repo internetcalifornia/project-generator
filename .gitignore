@@ -1,0 +1,5 @@
+build
+node_modules
+tests/temp
+.DS_Store
+bin

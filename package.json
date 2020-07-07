@@ -1,0 +1,37 @@
+{
+  "name": "project-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build/app.js",
+  "bin": "bin",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "fs-extra": "^9.0.1",
+    "winston": "^3.3.3",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-classes": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@babel/register": "^7.10.4",
+    "@types/fs-extra": "^9.0.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^14.0.14",
+    "mocha": "^8.0.1",
+    "pkg": "^4.4.9",
+    "typescript": "^3.9.6"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require ./tests/babel-register.js tests/**/*.test.ts",
+    "build": "./node_modules/.bin/babel --extensions \".ts\" src --out-dir build",
+    "package": "npm run build && ./node_modules/.bin/pkg -o bin/project-builder ./build/app.js",
+    "start": "node ."
+  },
+  "author": "Scott Eremia-Roden",
+  "license": "MIT"
+}
